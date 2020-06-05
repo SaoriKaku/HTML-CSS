@@ -1,2 +1,2 @@
 # HTML-CSS
-course notes and projects updated everyday!
+Currently taking a online course to practice HTML & CSS. Update course notes and projects everyday!
