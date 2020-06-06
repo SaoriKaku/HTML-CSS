@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+    内联框架
+    1. 内联框架：用于向当前页面中引入一个其他页面
+    src指定要引入的网页路径
+    frameborder: 指定有没有边框，只有0和1两个值
+    2. 不会被搜索引擎所查找
+
+    音视频
+    1. audio用来向页面中引用一个音频文件
+    2. 音视频文件引用时，默认情况下不允许用户自己控制播放停止
+    3. 属性
+    controls: 是否允许用户控制播放，不用给值
+    autoplay: 音频是否自动播放，如果设置了autoplay则音乐在打开页面时会自动播放，但是目前来讲大部分浏览器都不会对音乐自动播放
+    loop: 音乐是否循环播放
+    4. 需要css让他们长得一样，再用js把功能加上去
+    5. 还可以通过source指定来指定文件，如果浏览器不支持会显示文字，支持浏览器会显示播放器
+    不支持mp3，会尝试ogg，不支持ogg，再显示文字
+    6. embed IE8都支持，写文字就不写embed，写embed就不写文字
+     -->
+    <iframe src="https://www.qq.com" frameborder="0" width="800" height="600"></iframe>
+    <audio src="./source/audio.mp3" controls></audio>
+    <audio controls>
+         对不起，您的浏览器不支持
+        <source src="./source/audio.mp3">
+        <source src="./source/audio.ogg">
+    </audio>
+
+    <audio controls>
+       <source src="./source/audio.mp3">
+       <source src="./source/audio.ogg">
+       <embed src="./source/audio.mp3" type="audio/mp3" width="200" height="200">
+    </audio>
+    <!-- 
+    1. 使用方式和audio基本一样，
+    2. 在自己页面中引入视屏网站的视频，点击分享->复制通用代码，实际上用的还是iframe
+    -->
+    <video src="./source/audio.mp3">
+        <source src="./source/video.webm">
+        <source src="./source/video.ogg">
+        <embed src="./source/video.mp4" type="video/mp4" width="200" height="200">
+    </video>
+</body>
+</html>
