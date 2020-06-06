@@ -1,2 +1,1 @@
-Introduction to HTML & CSS
-course note
+HTML & CSS course notes
