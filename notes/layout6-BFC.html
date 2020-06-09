@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        header {
+            width: 1000px;
+            height: 100px;
+            background-color: silver;
+            margin: 0 auto
+        }
+        main {
+            width: 1000px;
+            height: 400px;
+            margin: 10px auto
+        }
+        nav {
+            float: left;
+            width: 200px;
+            height: 100%;
+            background-color: yellowgreen;
+        }
+        article {
+            float: left;
+            width: 580px;
+            height: 100%;
+            margin: 0 10px;
+            background-color: yellow;
+        }
+        aside {
+            float: left;
+            width: 200px;
+            height: 100%;
+            background-color: yellowgreen;
+        }
+        footer {
+            width: 1000px;
+            height: 100px;
+            background-color: lightpink;
+            margin: 0 auto
+        }
+        .box1 {
+            border: 5px red solid;
+        }
+        .box2 {
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+            float: left;
+        }
+        .box3 {
+            /* box1由box3撑起来的，应为box3有clear:both，
+            1. box3清楚了box2给的浮动的影响
+            2. 相当于加了box2高度的上外边距 */
+            clear: both;
+        }
+        /* 凭空加了一个box3，这个里面没有任何内容；
+        可以用::after，但是after是一个行内元素，所以要换成block */
+        .box1::after {
+            /* content: ""; 这里没有文字 */
+            display: block;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    高度塌陷的问题：
+    1. 在浮动布局中，父元素的高度默认是被子元素撑开的。
+    当子元素浮动后，其会完全脱离文档流，子元素从文档流中脱离，
+    将会无法撑起父元素的高度，导致父元素的高度丢失。
+    父元素高度丢失以后，其下的元素会自动上移，导致页面的布局混乱。
+    
+    2. BFC (block formatting context)块级格式化环境
+    BFC是一个CSS中的一个隐含的属性，可以为一个元素开启BFC
+    开启BFC该元素会变成一个独立的布局区域
+        1. 开启BFC的元素不会被浮动元素所覆盖
+        2. 开启BFC元素子元素和父元素外边距不会重叠
+        3. 开启BFC元素可以包含浮动的子元素
+
+    3. 可以通过一些特殊方式开启元素的BFC：
+        1. 设置元素的浮动（不推荐）
+        float: left;
+        2. 将元素设置为行内元素（不推荐）
+        display: inline-block;
+        3. 将元素的overflow设置为一个非visible的值
+        常用方式为元素设置overflow: hidden开启BFC以使包含浮动元素
+    
+    4. box1 float:left
+       box2 float:right
+       box3
+    由于box1浮动，导致box3位置上移。
+    也就是box3收到了box1浮动的影响，位置发生了改变。
+    如果我们不希望某个元素因为其他元素浮动的影响而改变位置，
+    可以通过clear属性来清除浮动元素对当前元素所产生的影响。
+    clear: 
+    作用：清除浮动元素对当前元素所产生的影响
+    可选值：
+    left 清除左侧浮动元素对当前元素的影响
+    right 清除右侧浮动元素对当前元素的影响
+    both 清除两侧中最大影响的那侧
+    原理：设置清除浮动以后，浏览器会自动为元素添加一个上外边距，
+    以使其位置不变其他元素的影响。
+     -->
+    <header></header>
+    <main>
+        <nav></nav>
+        <article></article>
+        <aside></aside>
+    </main>
+    <footer></footer>
+    <div class="box1">
+        <div class="box2"></div>
+        <div class="box3">aaa</div>
+    </div>
+</body>
+</html>

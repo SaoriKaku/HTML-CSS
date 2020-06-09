@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 解决高度塌陷问题 */
+        .box1 {
+            border: 5px red solid;
+        }
+        .box2 {
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+            float: left;
+        }
+        .box3 {
+            /* box1由box3撑起来的，应为box3有clear:both，
+            1. box3清楚了box2给的浮动的影响
+            2. 相当于加了box2高度的上外边距 */
+            clear: both;
+        }
+        /* 凭空加了一个box3，这个里面没有任何内容；
+        可以用::after，但是after是一个行内元素，所以要换成block */
+        .box1::after {
+            /* content: ""; 这里没有文字 */
+            display: block;
+            clear: both;
+        }
+
+        /* 解决外边距重叠问题 */
+        .box4 {
+            width: 200px;
+            height: 200px;
+            background-color: lightgreen;
+        }
+        .box4::before {
+            /* display: block; box4 box5会一起掉下来*/
+            /* content: "aaa" 隔离box4 box5外边距，但是box5下面会多出来*/
+            /* display: inline-block; inline-block会站位，然后box5掉下来*/
+            content: "";
+            display: table;
+        }
+        .box5 {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            margin-top: 100px;
+        }
+
+        .clearfix::before, .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+    1. 解决高度塌陷的问题
+    box1是一个外面box，里面有box2 box3
+        1. box3清除了box2给的浮动的影响
+        2. 相当于加了box2高度的上外边距
+    .box1::after {
+        /* content: ""; 这里没有文字 */
+        display: block;
+        clear: both;
+    }
+
+    2. 解决外边距重叠的问题
+    display: block; box4 box5会一起掉下来
+    content: "aaa" 隔离box4 box5外边距，但是box5下面会多出来
+    display: inline-block; inline-block会站位，然后box5掉下来
+    .box4::before {
+        content: "";
+        display: table;
+    }
+
+    3. 总结
+    .clearfix::before, .clearfix::after {
+        content: ""; //解决外边距重叠问题
+        display: table; //解决外边距重叠问题，高度塌陷问题
+        clear: both; // 解决高度塌陷问题
+    }
+
+     -->
+    <div class="box1">
+        <div class="box2"></div>
+        <div class="box3">aaa</div>
+    </div>
+    <div class="box4 clearfix">
+        <div class="box5"></div>
+    </div>
+</body>
+</html>

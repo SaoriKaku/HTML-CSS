@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <!-- 
+    定位：利用position属性来设置定位
+    可选值：
+    1. static 默认值，元素是静止的，没有开启定位
+    2. relative 开启元素的相对定位
+    3. absolute 开启元素的绝对定位
+    4. fixed 开启元素的固定定位
+    5. sticky 开启元素的粘滞定位
+    
+    相对定位：
+    当元素的position属性值设置为relative时则开启了元素的相对定位
+    相对定位的特点：
+    1. 元素开启相对定位后，如果不设置偏移量，元素不会发生任何变化
+    2. 相对定位是参照于元素在文档流中的位置进行定位的。
+    3. 相对定位会提升元素的层级
+    4. 相对定位不会使元素脱离文档流
+    5. 相对定位不会改变元素的性质，块还是块，行内还是行内
+    偏移量：offset，
+    当元素开启了定位以后，可以通过偏移量来设置元素的位置
+    top: 定位元素和定位位置上边的距离
+    bottom: 定位元素和定位位置下边的距离
+    定位元素垂直方向的位置由top和bottom两个属性来控制，通常使用其中之一
+    top值越大，定位元素越向下移动；bottom值越大，定位元素越向上移动
+    left: 定位元素和定位位置左侧距离
+    right: 定位元素和定位位置右侧距离
+    定位元素水平方向的位置由left和right两个属性来控制，通常使用其中之一
+    left值越大，定位元素越向右移动；right值越大，定位元素越向左移动
+
+    绝对定位
+    当元素的position属性值设置为absolute时，则开启了元素的绝对定位。
+    position: absolute;
+    绝对定位的特点：
+    1. 开启绝对定位，如果不设置偏移量元素的位置不会发生变化
+    2. 开启绝对定位，元素会从文档流中脱离
+    3. 绝对定位会改变元素的性质，行内变成块，块的高宽被内容撑开
+    4. 绝对定位会使元素提升一个层级
+    5. 绝对定位相对其包含块进行定位的
+    包含块：containing block
+    1. 正常情况下就是离当前元素最近的祖先！块！元素
+    2. 绝对定位的包含块：
+    包含块就是离它最近的开启了定位的祖先元素（只要position不是static就是开启定位）
+    3. 如果所有的祖先元素都没有开启定位，则根元素就是他的包含块
+    html（根元素，初始包含块）
+
+    固定定位：
+    将元素的position属性设置为fixed。
+    固定定位也是一种绝对定位，所以固定定位的大部分特点都和绝对定位一样。
+    唯一不同的是固定定位永远参照于浏览器的视口。
+    固定定位的元素不会随网页的滚动条滚动。
+
+    粘滞定位：IE浏览器不支持，不用看了，实际操作要用JS。
+    position: sticky。
+    粘滞定位和相对定位的特点基本一致；
+    不同的是粘滞定位可以在元素到达某个位置时将其固定。
+
+    水平布局：
+    left + margin-left + border-left + padding-left 
+    + width + 
+    padding-right + border-right + margin-right + right
+    = 包含块的内容区宽度
+    0 + 0 + 0 + 0 + 100 + 0 + 0 + 0 + 0 = 800， right = 700
+    当我们开启了绝对定位以后，水平方向的布局等式就需要添加left和right两个值
+    此时规则和之前一样只是多添加了两个值：
+    当发生过度约束时
+    如果9个值当中没有auto则自动调整right值以使等式满足
+    如果有auto，则自动调整auto的值以使等式满足
+    可设置auto的值，margin, width, left, right
+    如果不指定left和right，left和right默认是auto，则等式不满足时，会自动调整这两个值。
+
+    垂直方向布局：
+    （只有当前元素是position:absolute时才必须满足）
+    top/bottom + height
+    margin-top/bottom + border-top/bottom + padding-top/bottom
+    = 包含块的内容区高度度
+    可以让元素垂直水平都居中
+    position: absolute; margin: auto;
+    left:0; right: 0; top: 0; bottom: 0; 
+
+    z-index:
+    对于开启了定位的值，可以通过z-index属性来指定元素的层级。
+    z-index需要一个整数作为参数，值越大元素的层级越高，元素的层级越高越优先显示。
+    1. 如果元素的层级一样，则优先显示靠下的元素。
+    2. 组向元素的层级再高，也不会盖住后代元素。
+     -->
+</body>
+<div class="box1"></div>
+<div class="box2"></div>
+<div class="box3"></div>
+</html>
