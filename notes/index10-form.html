@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>form</title>
+    <style></style>
+</head>
+<body>
+    <!-- 
+    表单：在现实生活中表单用于提交数据
+    在网页中也可以使用表单，网页中的表单用于将本地的数据提交给远程的服务器
+    使用form标签来创建一个表单
+    form的属性：
+    action 表单要提交的服务器的地址
+     -->
+    <form action="target.html">
+        <!-- 文本框：数据提交到服务器中，必须要为元素指定一个name -->
+        <input type="text" name="username">
+        <!-- 提交按钮，value="显示的内容" -->
+        <input type="submit" value="xxx显示的内容">
+        <!-- 密码框 -->
+        <input type="password" name="password">
+        <!-- 单选按钮 
+            有相同的name才是二选一，必须有一个value属性
+            checked 单选按钮设置为默认选中
+        -->
+        <input type="radio" name="radio1" value="a" checked>
+        <input type="radio" name="radio1" value="b">
+        <!-- 多选框 -->
+        <input type="checkbox" name="text" value="1" checked>
+        <input type="checkbox" name="text" value="2">
+        <input type="checkbox" name="text" value="3">
+        <!-- 下拉列表 -->
+        <select name="key" id="">
+            <option value="option1" selected>1</option>
+            <option value="option2">2</option>
+            <option value="option3">3</option>
+        </select>
+        <!-- 重置按钮 -->
+        <input type="reset">
+        <!-- 普通按钮 -->
+        <input type="button" value="按钮">
+        <!-- 和input不同，可以在button里面放个图片，图片就成为了按钮 -->
+        <button type="submit">提交</button>
+        <button type="reset">提交</button>
+        <button type="button">提交</button>
+        <!-- 下面两个不能用，因为浏览器显示不一样 -->
+        <input type="color">
+        <input type="email">
+        <!-- 
+        autocomplete="off" 关闭自动补全
+        readonly 将表单项设置为只读，数据会提交
+        disabled 将表单项设置为禁用，数据不会提交
+        autofocus 设置表单项自动获取焦点
+        -->
+        <input type="text" name="username" autocomplete="on">
+    </form>
+</body>
+</html>
