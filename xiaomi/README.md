@@ -1,4 +1,4 @@
-# A reprensation for Xiaomi Website
+# A presentation for Xiaomi Website
 1. Xiaomi Website: 
 ![image](https://github.com/SaoriKaku/HTML-CSS/blob/master/screenshot/xiaomi1.png)
 2. QR code:
