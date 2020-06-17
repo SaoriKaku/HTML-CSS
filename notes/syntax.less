@@ -1,0 +1,105 @@
+
+// less中的单行注释，注释中内容不会被解析到css中
+/*
+css中注释，内容会被解析到css文件中
+*/
+.box1 {
+    background-color: pink;
+    .box2 {
+        background-color: lightyellow;
+    }
+}
+
+// 变量中可以存储一个任意的值，并且可以在需要时任意修改变量的值
+// 变量的语法 @变量名
+@a: 100px;
+@b: pink;
+@c: box6;
+.box5 {
+    // 使用变量时，如果直接使用则@变量名 的形式使用即可
+    width: @a;
+    color: @b;
+}
+// 作为类名，或者一部分值使用时必须@{变量名} 的形式使用
+.@{c} {
+    width: @a;
+    background-image: url("@{c}/1.png");
+}
+// 变量发生重名时，会优先使用比较近的变量；可以在变量声明前就使用变量
+@d: 200px;
+@d: 300px;
+div {
+    width: @d;
+    height: @e;
+}
+@e: 300px;
+
+div {
+    height: 200px;
+    width: $height;
+}
+// &表示外层的父元素
+.box1 {
+    &:hover {
+        color: pink;
+    }
+}
+.p1 {
+    width: 100px;
+    height: 200px;
+}
+// extend扩展，对当前选择器扩展指定选择器的样式（选择器分组）
+.p2:extend(.p1) {
+    color: red;
+}
+.p3 {
+    // 直接对指定的样式进行引用，这里就相当于将p1的样式在这里进行了复制 mixin混合
+    .p1();
+}
+// 使用类选择器可以在选择器后面添加一个括号，我们实际上就创建了一个mixin
+// 专门给别人用的，自己本身不会出现在css里面
+// 混合函数：
+.p4() {
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+}
+.p5 {
+    .p4();
+}
+
+// 补充问题：
+// 1. less中所有的数值都可以直接进行运算
+.box1 {
+    width: 100px + 100px;
+    height: 100px / 2;
+}
+@import "syntax.less";
+// 2. 通过import可以把多个less引入到当前的less中
+
+// 混合函数
+.test(@w:100px, @h:200px, @bg-color:yellow) {
+    width: @w;
+    height: @h;
+    border: 1px solid @bg-color;
+}
+div { // div = 200px * 100px
+    .test(200px, 100px, red); 
+}
+div { // 因为上面函数设置了默认值 div = 200px * 100px
+    .test(200px, 100px); 
+}
+div {
+    .test(@bg-color: red, @h: 100px, @w: 300px);
+}
+span { // 计算出两个颜色的平均值
+    color: average(red, yellow);
+}
+body {
+    width: 100%;
+    height: 100%;
+    background-color: pink;
+}
+body:hover {
+    background-color: darken(pink, 10%);
+}

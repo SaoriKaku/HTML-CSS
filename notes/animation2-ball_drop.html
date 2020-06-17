@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .outer {
+            height: 500px;
+            border-bottom: 10px brown solid;
+            margin: 50px auto;
+            /* 不加这句话，下面 */
+            overflow: hidden;
+        }
+        .box1 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: pink;
+            animation: ball 1s ease-in forwards;
+        }
+        @keyframes ball {
+            from {
+                margin-top: 0;
+            }
+            33%, to {
+                margin-top: 400px;
+            }
+            60% {
+                margin-top: 100px;
+            }
+
+            /* to {
+                margin-top: 400px;
+            } */
+        }
+    </style>
+</head>
+<body>
+    <div class="outer">
+        <div class="box1"></div>
+    </div>
+</body>
+</html>
