@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .clock {
+            width: 500px;
+            height: 500px;
+            /* background-color: pink; */
+            margin: 0 auto;
+            margin-top: 100px;
+            border-radius: 50%;
+            /* border: 10px solid black; */
+            position: relative;
+            background-image: url(../images/13/bg.png);
+            background-size: cover;
+            /* animation: run 60s; */
+        }
+        .clock > div {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
+        .hour-wrapper {
+            height: 60%;
+            width: 60%;
+            /* background-color: pink; */
+            animation: run 43200s linear infinite;
+        }
+        .hour {
+            height: 50%;
+            width: 6px;
+            background-color: #000;
+            margin: 0 auto;
+        }
+        .minute-wrapper {
+            height: 80%;
+            width: 80%;
+            /* background-color: pink; */
+            animation: run 3600s steps(60) infinite;
+        }
+        .minute {
+            height: 50%;
+            width: 4px;
+            background-color:blue;
+            margin: 0 auto;
+        }
+        .second-wrapper {
+            height: 90%;
+            width: 90%;
+            margin: 0 auto;
+            animation: run 60s steps(60) infinite;
+        }
+        .second {
+            height: 50%;
+            width: 4px;
+            background-color: red;
+            margin: 0 auto;
+        }
+        @keyframes run {
+            from {
+                transform: rotateZ(0);
+            }
+            to {
+                transform: rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="hour-wrapper">
+            <div class="hour"></div>
+        </div>
+        <div class="minute-wrapper">
+            <div class="minute"></div>
+        </div>
+        <div class="second-wrapper">
+            <div class="second"></div>
+        </div>
+    </div>
+</body>
+</html>
