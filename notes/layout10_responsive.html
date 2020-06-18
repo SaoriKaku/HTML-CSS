@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 使用媒体查询
+        语法：@media 查询规则{}
+        1. 媒体类型:
+        all 所有设备
+        print 打印设备
+        screen 带屏幕的设备
+        speech 屏幕阅读器，可以使用,链接多个媒体类型，它们之间是或的关系
+        可以在媒体类型前添加一个only表示只有，only使用主要是为了兼容一些老版本浏览器
+        老版本浏览器不认识，只有新浏览器才识别。
+        @media print, screen {
+            body {
+                background-color: greenyellow;
+            }
+        }
+        @media only screen {
+            body {
+                background-color: greenyellow;
+            }
+        }
+
+        2. 媒体特性：
+        width 视口的宽度
+        height 视口的高度
+        min-width: 视口的最小宽度
+        max-wdith: 视口的最大宽度
+        @media (width: 500px) {
+            body {
+                background-color: yellow;
+            }
+        }
+        当视口大于500px，就会显示背景颜色
+        @media (min-width: 500px) {
+            body {
+                background-color: yellow;
+            }
+        }
+        当视口小于500px，就会显示背景颜色
+        @media (max-width: 500px) {
+            body {
+                background-color: yellow;
+            }
+        }
+
+        3. 样式切换的分界点，我们称其为断点，网页会在这个点时切换样式
+        比较常用的断点：
+        小于768，超小屏幕，max-width=768px
+        大于768，小屏幕，min-width=768px
+        大于992，中型屏幕，min-width=992px
+        大于1200，大屏幕，min-width=1200px
+        500-700px之间
+        @media only screen and (min-width: 500px) and (max-width: 700px) {
+            body {
+                background-color: yellow;
+            }
+        }
+        对not后面整个取反
+        @media not screen and (min-width: 500px) and (max-width: 700px) {
+            body {
+                background-color: yellow;
+            }
+        }
+        */
+    </style>
+</head>
+<body>
+    <!-- 
+    响应式布局
+    网页可以根据不同的设备窗口大小呈现出不同的效果，使用响应式布局，可以是一个网页适用于所有设备
+    关键：媒体查询
+    通过媒体查询，可以为不同的设备或设备的不同状态分别设置样式
+
+     -->
+</body>
+</html>
