@@ -1,1 +1,1 @@
-screen shot for exercise
+Screenshots for exercise and projects.
