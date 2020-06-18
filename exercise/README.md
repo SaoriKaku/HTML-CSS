@@ -1,4 +1,4 @@
-## Exercise Presentation
+## A Presentation for exercise 1 - 16
 Exercise 1: shopping items
 ![image](https://github.com/SaoriKaku/HTML-CSS/blob/master/screenshot/exercise1.png)
 
